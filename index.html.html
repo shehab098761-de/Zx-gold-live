@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0d0c">
+<title>Zx Gold Live</title>
+<style>
+:root{--bg:#0b0d0c;--panel:#141916;--panel2:#1b211d;--gold:#e7bd62;--text:#f4f1e8;--muted:#9ca69e;--line:#2a332d;--green:#45c486;--red:#ef7373}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif}
+.wrap{max-width:900px;margin:auto;padding:22px 16px 40px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}
+.brand{font-weight:800;letter-spacing:.4px;font-size:20px}.brand span{color:var(--gold)}
+.pill{font-size:12px;color:var(--green);border:1px solid #28583f;padding:6px 10px;border-radius:30px}
+h1{font-size:26px;margin:0 0 6px} .sub{color:var(--muted);font-size:13px;margin:0 0 20px}
+.section{font-size:16px;margin:26px 0 12px;color:var(--gold);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}
+.label{color:var(--muted);font-size:13px}.price{font-size:23px;font-weight:800;margin:9px 0 4px;overflow-wrap:anywhere}
+.small{font-size:12px;color:var(--muted)}.gold{color:var(--gold)}
+.wide{grid-column:1/-1}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.market-price{font-size:25px;font-weight:800;margin-top:8px}
+.note{border:1px solid var(--line);background:#111512;border-radius:12px;padding:13px;color:var(--muted);font-size:12px;line-height:1.65;margin-top:16px}
+button{border:1px solid #705b30;background:#2b2416;color:var(--gold);padding:9px 13px;border-radius:10px;font-weight:700}
+footer{color:#727d75;font-size:11px;line-height:1.6;margin-top:24px}
+@media(max-width:430px){.price{font-size:20px}.wrap{padding:18px 13px}.card{padding:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand">ZX <span>GOLD LIVE</span></div><div class="pill">● LIVE MARKET</div></header>
+<h1>Gold & Crypto Dashboard</h1>
+<p class="sub">বাংলাদেশের সোনার দর • আন্তর্জাতিক গোল্ড মার্কেট • Bitcoin</p>
+
+<div class="section">বাংলাদেশে সোনার দাম — প্রতি ভরি</div>
+<div class="grid">
+  <div class="card"><div class="label">২২ ক্যারেট (হলমার্ক)</div><div class="price gold" id="k22">৳ ২,১৭,৫৯২</div><div class="small">প্রতি ভরি · ১১.৬৬৪ গ্রাম</div></div>
+  <div class="card"><div class="label">২১ ক্যারেট (হলমার্ক)</div><div class="price" id="k21">৳ ২,০৭,৭৯৪</div><div class="small">প্রতি ভরি · ১১.৬৬৪ গ্রাম</div></div>
+  <div class="card"><div class="label">১৮ ক্যারেট (হলমার্ক)</div><div class="price" id="k18">৳ ১,৭৮,৪৫৯</div><div class="small">প্রতি ভরি · ১১.৬৬৪ গ্রাম</div></div>
+  <div class="card"><div class="label">সনাতন পদ্ধতি</div><div class="price" id="ktrad">৳ ১,৪৫,৮০০</div><div class="small">প্রতি ভরি · ১১.৬৬৪ গ্রাম</div></div>
+</div>
+<div class="small" style="margin-top:9px">BAJUS-ভিত্তিক প্রকাশিত রেফারেন্স রেট: ১ নভেম্বর ২০২৬। নতুন ঘোষণা হলে এই অংশ আপডেট করতে হবে।</div>
+
+<div class="section">আন্তর্জাতিক মার্কেট</div>
+<div class="grid">
+  <div class="card"><div class="label">XAU / USD · Gold Spot</div><div class="market-price gold" id="xauusd">লোড হচ্ছে…</div><div class="small">USD প্রতি ট্রয় আউন্স</div></div>
+  <div class="card"><div class="label">আনুমানিক ২৪K স্পট ভ্যালু</div><div class="market-price" id="spotbhd">লোড হচ্ছে…</div><div class="small">বাংলাদেশি টাকা · প্রতি ভরি</div></div>
+  <div class="card"><div class="label">USD / BDT</div><div class="market-price" id="usdbdt">লোড হচ্ছে…</div><div class="small">১ মার্কিন ডলারের আনুমানিক মূল্য</div></div>
+  <div class="card"><div class="label">BTC / USD</div><div class="market-price" id="btcusd">লোড হচ্ছে…</div><div class="small">Bitcoin · Binance spot reference</div></div>
+  <div class="card wide"><div class="row"><div><div class="label">BTC / BDT</div><div class="market-price gold" id="btcbhd">লোড হচ্ছে…</div><div class="small">USD/BDT রেট দিয়ে হিসাব করা</div></div><button id="refresh">রিফ্রেশ</button></div></div>
+</div>
+
+<div class="section">BUY / SELL Signal</div>
+<div class="card">
+  <div class="row"><div><div class="label">XAUUSD Signal</div><div class="price" style="font-size:18px">সিগন্যাল মডিউল প্রস্তুত হচ্ছে</div></div><span class="pill" style="color:var(--gold);border-color:#705b30">NOT ACTIVE</span></div>
+  <div class="small">এখনো কোনো BUY বা SELL পরামর্শ দেওয়া হচ্ছে না। পরে নির্ভরযোগ্য চার্ট ডেটা ও নিয়ম যুক্ত করে এই অংশ তৈরি করা হবে।</div>
+</div>
+<div class="note">দ্রষ্টব্য: BAJUS-এর গয়নার দাম আন্তর্জাতিক স্পট প্রাইসের সমান নয়। মেকিং চার্জ ও VAT আলাদা হতে পারে। আন্তর্জাতিক স্পট ভ্যালু কেবল আনুমানিক ধাতুমূল্য; এটি দোকানের বিক্রয়মূল্য বা ট্রেডিং কোট নয়।</div>
+<footer>
+Gold spot data: Gold-API · Bitcoin market reference: Binance public ticker · USD/BDT: ExchangeRate-API open endpoint.<br>
+BAJUS rate reference: AL-AMIN JEWELLERS published rate page (BAJUS source stated). দাম কেনাবেচার আগে সংশ্লিষ্ট উৎসে যাচাই করুন।<br>
+শেষ আপডেট: <span id="updated">—</span>
+</footer>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const money = n => "৳ " + new Intl.NumberFormat("bn-BD",{maximumFractionDigits:0}).format(n);
+const usd = n => "$" + new Intl.NumberFormat("en-US",{maximumFractionDigits:2}).format(n);
+async function loadPrices(){
+  $("refresh").textContent = "লোড হচ্ছে…";
+  try{
+    const [goldRes, fxRes, btcRes] = await Promise.all([
+      fetch("https://api.gold-api.com/price/XAU",{cache:"no-store"}),
+      fetch("https://open.er-api.com/v6/latest/USD",{cache:"no-store"}),
+      fetch("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT",{cache:"no-store"})
+    ]);
+    if(!goldRes.ok || !fxRes.ok || !btcRes.ok) throw new Error("একটি API সাড়া দেয়নি");
+    const [gold,fx,btc] = await Promise.all([goldRes.json(),fxRes.json(),btcRes.json()]);
+    const rate = fx.rates && fx.rates.BDT;
+    const xau = Number(gold.price);
+    const bitcoin = Number(btc.price);
+    if(!rate || !xau || !bitcoin) throw new Error("ডেটা পাওয়া যায়নি");
+    const bhori = xau / 31.1034768 * 11.664 * rate;
+    $("xauusd").textContent = usd(xau);
+    $("spotbhd").textContent = money(bhori);
+    $("usdbdt").textContent = "৳ " + Number(rate).toFixed(2);
+    $("btcusd").textContent = usd(bitcoin);
+    $("btcbhd").textContent = money(bitcoin * rate);
+    $("updated").textContent = new Date().toLocaleString("bn-BD");
+  }catch(e){
+    $("xauusd").textContent = "ডেটা পাওয়া যায়নি";
+    $("spotbhd").textContent = "—";
+    $("usdbdt").textContent = "—";
+    $("btcusd").textContent = "ডেটা পাওয়া যায়নি";
+    $("btcbhd").textContent = "—";
+    $("updated").textContent = "API সংযোগে সমস্যা";
+  }finally{$("refresh").textContent = "রিফ্রেশ";}
+}
+$("refresh").addEventListener("click",loadPrices);
+loadPrices();
+setInterval(loadPrices,60000);
+</script>
+</body>
+</html>
